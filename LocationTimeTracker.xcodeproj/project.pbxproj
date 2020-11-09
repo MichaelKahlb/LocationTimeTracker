@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C4035FA2559BDBE00DBE020 /* LTTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4035F92559BDBE00DBE020 /* LTTTabBarController.swift */; };
 		4CF2837B255707AF00A3BE19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF2837A255707AF00A3BE19 /* AppDelegate.swift */; };
 		4CF2837D255707AF00A3BE19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF2837C255707AF00A3BE19 /* SceneDelegate.swift */; };
-		4CF2837F255707AF00A3BE19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF2837E255707AF00A3BE19 /* ViewController.swift */; };
-		4CF28382255707AF00A3BE19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF28380255707AF00A3BE19 /* Main.storyboard */; };
 		4CF28384255707B200A3BE19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF28383255707B200A3BE19 /* Assets.xcassets */; };
 		4CF28387255707B200A3BE19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF28385255707B200A3BE19 /* LaunchScreen.storyboard */; };
 		4CF28392255707B200A3BE19 /* LocationTimeTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF28391255707B200A3BE19 /* LocationTimeTrackerTests.swift */; };
@@ -35,11 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C4035F92559BDBE00DBE020 /* LTTTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTTTabBarController.swift; sourceTree = "<group>"; };
 		4CF28377255707AF00A3BE19 /* LocationTimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationTimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF2837A255707AF00A3BE19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CF2837C255707AF00A3BE19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4CF2837E255707AF00A3BE19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4CF28381255707AF00A3BE19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CF28383255707B200A3BE19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CF28386255707B200A3BE19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CF28388255707B200A3BE19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +74,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C4035F02559BAA200DBE020 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				4CF2837A255707AF00A3BE19 /* AppDelegate.swift */,
+				4CF2837C255707AF00A3BE19 /* SceneDelegate.swift */,
+				4CF28383255707B200A3BE19 /* Assets.xcassets */,
+				4CF28385255707B200A3BE19 /* LaunchScreen.storyboard */,
+				4CF28388255707B200A3BE19 /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		4C4035F72559BD7600DBE020 /* Costum Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C4036012559C05200DBE020 /* ViewControllers */,
+				4C4035F82559BD8900DBE020 /* TabBarController */,
+			);
+			path = "Costum Views";
+			sourceTree = "<group>";
+		};
+		4C4035F82559BD8900DBE020 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				4C4035F92559BDBE00DBE020 /* LTTTabBarController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		4C4036012559C05200DBE020 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4C4036022559C07900DBE020 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 		4CF2836E255707AF00A3BE19 = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +140,9 @@
 		4CF28379255707AF00A3BE19 /* LocationTimeTracker */ = {
 			isa = PBXGroup;
 			children = (
-				4CF2837A255707AF00A3BE19 /* AppDelegate.swift */,
-				4CF2837C255707AF00A3BE19 /* SceneDelegate.swift */,
-				4CF2837E255707AF00A3BE19 /* ViewController.swift */,
-				4CF28380255707AF00A3BE19 /* Main.storyboard */,
-				4CF28383255707B200A3BE19 /* Assets.xcassets */,
-				4CF28385255707B200A3BE19 /* LaunchScreen.storyboard */,
-				4CF28388255707B200A3BE19 /* Info.plist */,
+				4C4036022559C07900DBE020 /* Screens */,
+				4C4035F72559BD7600DBE020 /* Costum Views */,
+				4C4035F02559BAA200DBE020 /* Support */,
 			);
 			path = LocationTimeTracker;
 			sourceTree = "<group>";
@@ -233,7 +270,6 @@
 			files = (
 				4CF28387255707B200A3BE19 /* LaunchScreen.storyboard in Resources */,
 				4CF28384255707B200A3BE19 /* Assets.xcassets in Resources */,
-				4CF28382255707AF00A3BE19 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CF2837F255707AF00A3BE19 /* ViewController.swift in Sources */,
+				4C4035FA2559BDBE00DBE020 /* LTTTabBarController.swift in Sources */,
 				4CF2837B255707AF00A3BE19 /* AppDelegate.swift in Sources */,
 				4CF2837D255707AF00A3BE19 /* SceneDelegate.swift in Sources */,
 			);
@@ -296,14 +332,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4CF28380255707AF00A3BE19 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4CF28381255707AF00A3BE19 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4CF28385255707B200A3BE19 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -438,7 +466,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8LY46C2NM9;
-				INFOPLIST_FILE = LocationTimeTracker/Info.plist;
+				INFOPLIST_FILE = /Users/Michael/Documents/HackingWithSwift/LocationTimeTracker/LocationTimeTracker/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +485,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8LY46C2NM9;
-				INFOPLIST_FILE = LocationTimeTracker/Info.plist;
+				INFOPLIST_FILE = /Users/Michael/Documents/HackingWithSwift/LocationTimeTracker/LocationTimeTracker/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
