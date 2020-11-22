@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4C4035FA2559BDBE00DBE020 /* LTTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4035F92559BDBE00DBE020 /* LTTTabBarController.swift */; };
+		4C403604255DC23500DBE020 /* RegionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C403603255DC23500DBE020 /* RegionsVC.swift */; };
+		4C40360C255DC26400DBE020 /* TimesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40360B255DC26400DBE020 /* TimesVC.swift */; };
+		4C403618255DC5C800DBE020 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C403617255DC5C800DBE020 /* Constants.swift */; };
+		4C647ACA2565A2300097F12E /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C647AC92565A2300097F12E /* Timestamp.swift */; };
+		4C647AD22565A2400097F12E /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C647AD12565A2400097F12E /* Region.swift */; };
 		4CF2837B255707AF00A3BE19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF2837A255707AF00A3BE19 /* AppDelegate.swift */; };
 		4CF2837D255707AF00A3BE19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF2837C255707AF00A3BE19 /* SceneDelegate.swift */; };
 		4CF28384255707B200A3BE19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF28383255707B200A3BE19 /* Assets.xcassets */; };
@@ -35,6 +40,11 @@
 
 /* Begin PBXFileReference section */
 		4C4035F92559BDBE00DBE020 /* LTTTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTTTabBarController.swift; sourceTree = "<group>"; };
+		4C403603255DC23500DBE020 /* RegionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsVC.swift; sourceTree = "<group>"; };
+		4C40360B255DC26400DBE020 /* TimesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesVC.swift; sourceTree = "<group>"; };
+		4C403617255DC5C800DBE020 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4C647AC92565A2300097F12E /* Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timestamp.swift; sourceTree = "<group>"; };
+		4C647AD12565A2400097F12E /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		4CF28377255707AF00A3BE19 /* LocationTimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationTimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF2837A255707AF00A3BE19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CF2837C255707AF00A3BE19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,8 +123,27 @@
 		4C4036022559C07900DBE020 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				4C403603255DC23500DBE020 /* RegionsVC.swift */,
+				4C40360B255DC26400DBE020 /* TimesVC.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		4C403616255DC5B800DBE020 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4C403617255DC5C800DBE020 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4C647AC825659F5A0097F12E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C647AC92565A2300097F12E /* Timestamp.swift */,
+				4C647AD12565A2400097F12E /* Region.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4CF2836E255707AF00A3BE19 = {
@@ -140,6 +169,8 @@
 		4CF28379255707AF00A3BE19 /* LocationTimeTracker */ = {
 			isa = PBXGroup;
 			children = (
+				4C647AC825659F5A0097F12E /* Model */,
+				4C403616255DC5B800DBE020 /* Utilities */,
 				4C4036022559C07900DBE020 /* Screens */,
 				4C4035F72559BD7600DBE020 /* Costum Views */,
 				4C4035F02559BAA200DBE020 /* Support */,
@@ -294,9 +325,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C647ACA2565A2300097F12E /* Timestamp.swift in Sources */,
 				4C4035FA2559BDBE00DBE020 /* LTTTabBarController.swift in Sources */,
+				4C40360C255DC26400DBE020 /* TimesVC.swift in Sources */,
+				4C647AD22565A2400097F12E /* Region.swift in Sources */,
 				4CF2837B255707AF00A3BE19 /* AppDelegate.swift in Sources */,
+				4C403604255DC23500DBE020 /* RegionsVC.swift in Sources */,
 				4CF2837D255707AF00A3BE19 /* SceneDelegate.swift in Sources */,
+				4C403618255DC5C800DBE020 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
