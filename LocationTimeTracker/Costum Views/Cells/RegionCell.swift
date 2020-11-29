@@ -26,6 +26,7 @@ class RegionCell: UITableViewCell {
         addSubview(colorField)
         colorField.layer.cornerRadius = colorField.frame.size.width / 2
         colorField.backgroundColor = .red
+        //Todo
         NSLayoutConstraint.activate([
 
         ])
