@@ -35,7 +35,6 @@ class RegionsVC: UIViewController {
         tableView.dataSource = self
         tableView.removeExcessCells()
         tableView.register(RegionCell.self, forCellReuseIdentifier: RegionCell.reuseIdentifier)
-        
     }
     
     func loadRegions(){

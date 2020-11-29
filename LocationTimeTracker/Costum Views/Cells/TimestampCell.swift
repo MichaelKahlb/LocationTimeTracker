@@ -25,6 +25,6 @@ class TimestampCell: UITableViewCell {
     }
     
     func set(timeStamp: Timestamp) {
-        textLabel?.text = timeStamp.timeValue
+        textLabel?.text = timeStamp.timeValue + " " + timeStamp.region.name + " "
     }
 }

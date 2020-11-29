@@ -30,7 +30,6 @@ class RegionCell: UITableViewCell {
         NSLayoutConstraint.activate([
 
         ])
-        //Add Constrain
     }
     
     func set(region: Region) {
