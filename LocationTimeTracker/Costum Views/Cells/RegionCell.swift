@@ -10,6 +10,7 @@ import UIKit
 class RegionCell: UITableViewCell {
 
     static let reuseIdentifier = "RegionCell"
+    var colorField = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,10 +23,17 @@ class RegionCell: UITableViewCell {
     
     private func configure(){
         accessoryType = .disclosureIndicator
+        addSubview(colorField)
+        colorField.layer.cornerRadius = colorField.frame.size.width / 2
+        colorField.backgroundColor = .red
+        NSLayoutConstraint.activate([
+
+        ])
     }
     
     func set(region: Region) {
-        textLabel?.text = region.name
+        textLabel?.text = region.name + "    " + String(region.radius)
+        colorField.backgroundColor = region.colour.uiColor
     }
 
 }

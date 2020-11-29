@@ -15,12 +15,27 @@ class RegionsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        configureTableView()
         loadRegions()
+        
+        //TEST
+        regions.append(Region(name: "Test654", colour: Color(red: 1, green: 1, blue: 0, alpha: 0.7), radius: 1, lat: 1, lon: 1))
+        //TEST END
     }
     
     func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func configureTableView(){
+        view.addSubview(tableView)
+        tableView.frame = view.bounds
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.removeExcessCells()
+        tableView.register(RegionCell.self, forCellReuseIdentifier: RegionCell.reuseIdentifier)
+        
     }
     
     func loadRegions(){
@@ -35,4 +50,19 @@ class RegionsVC: UIViewController {
         }
     }
 
+}
+
+extension RegionsVC: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return regions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: RegionCell.reuseIdentifier, for: indexPath) as! RegionCell
+        cell.set(region: regions[indexPath.row])
+        return cell
+    }
+    
+    
 }

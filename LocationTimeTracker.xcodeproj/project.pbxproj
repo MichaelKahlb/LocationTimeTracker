@@ -18,6 +18,7 @@
 		4C647AE6256AB7D10097F12E /* LTTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C647AE5256AB7D10097F12E /* LTTError.swift */; };
 		4CA8AD71256C439A002509E3 /* RegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8AD70256C439A002509E3 /* RegionCell.swift */; };
 		4CA8AD79256C43B1002509E3 /* TimestampCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8AD78256C43B1002509E3 /* TimestampCell.swift */; };
+		4CA8ADA525743EE9002509E3 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8ADA425743EE9002509E3 /* UITableView+Ext.swift */; };
 		4CF2837B255707AF00A3BE19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF2837A255707AF00A3BE19 /* AppDelegate.swift */; };
 		4CF2837D255707AF00A3BE19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF2837C255707AF00A3BE19 /* SceneDelegate.swift */; };
 		4CF28384255707B200A3BE19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF28383255707B200A3BE19 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		4C647AE5256AB7D10097F12E /* LTTError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LTTError.swift; path = ../../../../../LTTError.swift; sourceTree = "<group>"; };
 		4CA8AD70256C439A002509E3 /* RegionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionCell.swift; sourceTree = "<group>"; };
 		4CA8AD78256C43B1002509E3 /* TimestampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampCell.swift; sourceTree = "<group>"; };
+		4CA8ADA425743EE9002509E3 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		4CF28377255707AF00A3BE19 /* LocationTimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationTimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF2837A255707AF00A3BE19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CF2837C255707AF00A3BE19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		4CA8ADA325743EC9002509E3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4CA8ADA425743EE9002509E3 /* UITableView+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4CF2836E255707AF00A3BE19 = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +209,7 @@
 		4CF28379255707AF00A3BE19 /* LocationTimeTracker */ = {
 			isa = PBXGroup;
 			children = (
+				4CA8ADA325743EC9002509E3 /* Extensions */,
 				4C647ADB256AB2170097F12E /* Managers */,
 				4C647AC825659F5A0097F12E /* Model */,
 				4C403616255DC5B800DBE020 /* Utilities */,
@@ -367,6 +378,7 @@
 				4CF2837B255707AF00A3BE19 /* AppDelegate.swift in Sources */,
 				4C647AE6256AB7D10097F12E /* LTTError.swift in Sources */,
 				4C403604255DC23500DBE020 /* RegionsVC.swift in Sources */,
+				4CA8ADA525743EE9002509E3 /* UITableView+Ext.swift in Sources */,
 				4CF2837D255707AF00A3BE19 /* SceneDelegate.swift in Sources */,
 				4C403618255DC5C800DBE020 /* Constants.swift in Sources */,
 			);
@@ -538,7 +550,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8LY46C2NM9;
-				INFOPLIST_FILE = /Users/Michael/Documents/HackingWithSwift/LocationTimeTracker/LocationTimeTracker/Support/Info.plist;
+				INFOPLIST_FILE = /Users/Michael/Documents/Apps/LocationTimeTracker/LocationTimeTracker/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -557,7 +569,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8LY46C2NM9;
-				INFOPLIST_FILE = /Users/Michael/Documents/HackingWithSwift/LocationTimeTracker/LocationTimeTracker/Support/Info.plist;
+				INFOPLIST_FILE = /Users/Michael/Documents/Apps/LocationTimeTracker/LocationTimeTracker/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
