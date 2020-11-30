@@ -17,7 +17,6 @@ class RegionsVC: UIViewController {
         configureViewController()
         configureTableView()
         loadRegions()
-        
         //TEST
         regions.append(Region(name: "Test654", colour: Color(red: 1, green: 1, blue: 0, alpha: 0.7), radius: 1, lat: 1, lon: 1))
         //TEST END

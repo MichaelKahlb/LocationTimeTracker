@@ -7,8 +7,21 @@
 
 import Foundation
 
+enum TimestampAction: String, Codable {
+    case exit = "exit"
+    case enter = "enter"
+}
 
 struct Timestamp: Codable, Hashable {
-    let timeValue: String
+    var timeValue: String {
+        return Date().convertToManthYearFormat()
+    }
     let region: Region
+    let action: TimestampAction
+    
+    init(region: Region, actionType: TimestampAction) {
+        self.region = region
+        self.action = actionType
+    }
+
 }

@@ -20,7 +20,9 @@ class TimesVC: UIViewController {
         loadTimes()
         //TESTTEST
         let region = Region(name: "Test654", colour: Color(red: 1, green: 1, blue: 0, alpha: 0.7), radius: 1, lat: 1, lon: 1)
-        timeStamps.append(Timestamp(timeValue: "15:00", region: region))
+        let timestamp = Timestamp(region: region, actionType: .enter)
+        print(timestamp.timeValue)
+        timeStamps.append(timestamp)
         
     }
     
