@@ -13,11 +13,13 @@ enum TimestampAction: String, Codable {
 }
 
 struct Timestamp: Codable, Hashable {
+    
     var timeValue: String {
-        return Date().convertToManthYearFormat()
+        return Date().convertToFormat()
     }
     let region: Region
     let action: TimestampAction
+    
     
     init(region: Region, actionType: TimestampAction) {
         self.region = region

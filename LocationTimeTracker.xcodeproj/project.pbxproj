@@ -18,6 +18,7 @@
 		4C647AE6256AB7D10097F12E /* LTTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C647AE5256AB7D10097F12E /* LTTError.swift */; };
 		4CA6153B25757AD6004403E2 /* RegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6153A25757AD6004403E2 /* RegionManager.swift */; };
 		4CA6154425758393004403E2 /* UIDate+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6154325758393004403E2 /* UIDate+Ext.swift */; };
+		4CA615512576B6CA004403E2 /* RegionInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA615502576B6CA004403E2 /* RegionInfoVC.swift */; };
 		4CA8AD71256C439A002509E3 /* RegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8AD70256C439A002509E3 /* RegionCell.swift */; };
 		4CA8AD79256C43B1002509E3 /* TimestampCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8AD78256C43B1002509E3 /* TimestampCell.swift */; };
 		4CA8ADA525743EE9002509E3 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8ADA425743EE9002509E3 /* UITableView+Ext.swift */; };
@@ -58,6 +59,7 @@
 		4C647AE5256AB7D10097F12E /* LTTError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LTTError.swift; path = ../../../../../LTTError.swift; sourceTree = "<group>"; };
 		4CA6153A25757AD6004403E2 /* RegionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionManager.swift; sourceTree = "<group>"; };
 		4CA6154325758393004403E2 /* UIDate+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDate+Ext.swift"; sourceTree = "<group>"; };
+		4CA615502576B6CA004403E2 /* RegionInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionInfoVC.swift; sourceTree = "<group>"; };
 		4CA8AD70256C439A002509E3 /* RegionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionCell.swift; sourceTree = "<group>"; };
 		4CA8AD78256C43B1002509E3 /* TimestampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampCell.swift; sourceTree = "<group>"; };
 		4CA8ADA425743EE9002509E3 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				4C403603255DC23500DBE020 /* RegionsVC.swift */,
 				4C40360B255DC26400DBE020 /* TimesVC.swift */,
+				4CA615502576B6CA004403E2 /* RegionInfoVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				4C4035FA2559BDBE00DBE020 /* LTTTabBarController.swift in Sources */,
 				4CA6154425758393004403E2 /* UIDate+Ext.swift in Sources */,
 				4CA8AD71256C439A002509E3 /* RegionCell.swift in Sources */,
+				4CA615512576B6CA004403E2 /* RegionInfoVC.swift in Sources */,
 				4CA6153B25757AD6004403E2 /* RegionManager.swift in Sources */,
 				4C40360C255DC26400DBE020 /* TimesVC.swift in Sources */,
 				4C647AD7256AAFF50097F12E /* Colour.swift in Sources */,

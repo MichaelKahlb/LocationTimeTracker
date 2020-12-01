@@ -11,6 +11,7 @@ import CoreLocation
 class TimesVC: UIViewController {
 
     var timeStamps:[Timestamp] = []
+    var regions:[Region] = []
     let tableView = UITableView()
     
     override func viewDidLoad() {
@@ -18,10 +19,10 @@ class TimesVC: UIViewController {
         configureViewController()
         configureTableView()
         loadTimes()
+        RegionManager.shared.delegate = self
         //TESTTEST
         let region = Region(name: "Test654", colour: Color(red: 1, green: 1, blue: 0, alpha: 0.7), radius: 1, lat: 1, lon: 1)
-        let timestamp = Timestamp(region: region, actionType: .enter)
-        print(timestamp.timeValue)
+        let timestamp = Timestamp(region: region, actionType: .exit)
         timeStamps.append(timestamp)
         
     }
@@ -55,7 +56,16 @@ class TimesVC: UIViewController {
 
 }
 
-extension TimesVC: UITableViewDelegate, UITableViewDataSource {
+extension TimesVC: UITableViewDelegate, UITableViewDataSource, RegionManagerDelegate {
+    
+    func didEnter(at CLRegion: CLRegion) {
+        print("deleagta workd")
+    }
+    
+    func didExit(at CLRegion: CLRegion) {
+        print("deleagta workd")
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         timeStamps.count

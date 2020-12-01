@@ -14,17 +14,23 @@ class RegionsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadRegions()
         configureViewController()
         configureTableView()
-        loadRegions()
-        //TEST
-        regions.append(Region(name: "Test654", colour: Color(red: 1, green: 1, blue: 0, alpha: 0.7), radius: 1, lat: 1, lon: 1))
-        //TEST END
+        print(RegionManager.shared.manager.monitoredRegions)
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loadRegions()
+    }
+
     
     func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
     
     func configureTableView(){
@@ -42,24 +48,56 @@ class RegionsVC: UIViewController {
             switch result {
             case .success(let regions):
                 self.regions = regions
+                self.tableView.reloadDataOnMainThread()
             case .failure(let error):
                 print(error.rawValue)
             }
         }
+    }
+    
+    @objc func addTapped() {
+        let destVC = RegionInfoVC()
+        let navController = UINavigationController(rootViewController: destVC)
+        present(navController, animated: true)
     }
 
 }
 
 extension RegionsVC: UITableViewDataSource, UITableViewDelegate {
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return regions.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RegionCell.reuseIdentifier, for: indexPath) as! RegionCell
         cell.set(region: regions[indexPath.row])
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destVC = RegionInfoVC()
+        destVC.region = regions[indexPath.row]
+        let navController = UINavigationController(rootViewController: destVC)
+        present(navController, animated: true)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            PersistenceManager.update(with: regions[indexPath.row], actionType: .remove) { [weak self] (error) in
+                guard let self = self else { return }
+                guard let error = error else {
+                    self.regions.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    return
+                }
+                print(error.rawValue)
+            }
+        }
     }
     
     

@@ -25,7 +25,6 @@ class RegionCell: UITableViewCell {
         accessoryType = .disclosureIndicator
         addSubview(colorField)
         colorField.layer.cornerRadius = colorField.frame.size.width / 2
-        colorField.backgroundColor = .red
         //Todoo
         NSLayoutConstraint.activate([
 
