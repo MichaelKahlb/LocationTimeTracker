@@ -20,11 +20,6 @@ class TimesVC: UIViewController {
         configureTableView()
         loadTimes()
         RegionManager.shared.delegate = self
-        //TESTTEST
-        let region = Region(name: "Test654", colour: Color(red: 1, green: 1, blue: 0, alpha: 0.7), radius: 1, lat: 1, lon: 1)
-        let timestamp = Timestamp(region: region, actionType: .exit)
-        timeStamps.append(timestamp)
-        
     }
     
     func configureViewController(){
@@ -51,22 +46,40 @@ class TimesVC: UIViewController {
                 print(error)
             }
         }
-        
     }
 
 }
 
 extension TimesVC: UITableViewDelegate, UITableViewDataSource, RegionManagerDelegate {
     
-    func didEnter(at CLRegion: CLRegion) {
-        print("deleagta workd")
+    
+    func didEnter(at region: Region) {
+        let timeStamp = Timestamp(region: region, actionType: .enter)
+        PersistenceManager.update(with: timeStamp, actionType: .add) { [weak self] error in
+            guard let self = self else { return }
+            guard let error = error else {
+                self.timeStamps.append(timeStamp)
+                self.tableView.reloadDataOnMainThread()
+                return
+            }
+            print(error.rawValue)
+        }
     }
     
-    func didExit(at CLRegion: CLRegion) {
-        print("deleagta workd")
+    func didExit(at region: Region) {
+        let timeStamp = Timestamp(region: region, actionType: .exit)
+        PersistenceManager.update(with: timeStamp, actionType: .add) { [weak self] error in
+            guard let self = self else { return }
+            guard let error = error else {
+                self.timeStamps.append(timeStamp)
+                self.tableView.reloadDataOnMainThread()
+                return
+            }
+            print(error.rawValue)
+        }
     }
     
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         timeStamps.count
     }

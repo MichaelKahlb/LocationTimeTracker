@@ -11,9 +11,8 @@ import MapKit
 class RegionInfoVC: UIViewController {
 
     var region: Region?
-    
     var mapView: MKMapView!
-    
+    var overlay: MKCircle = MKCircle()
     var name: String = "" {
         didSet {
             title = name
@@ -37,15 +36,25 @@ class RegionInfoVC: UIViewController {
     
     
     func configureMapView(){
-        mapView = MKMapView(frame: view.bounds)
+        mapView = MKMapView()
+        mapView.delegate = self
         mapView.isZoomEnabled = true
+        mapView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(mapView!)
+        
+        
+        NSLayoutConstraint.activate([
+            mapView.topAnchor.constraint(equalTo: view.topAnchor),
+            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
+        ])
     }
     
     
     func loadRegion(){
         guard let region = region else { return }
-        let span = MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 2)
+        let span = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
         let coordinate = CLLocationCoordinate2D(latitude: region.lat, longitude: region.lon)
         let mapRegion = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(mapRegion, animated: true)
@@ -53,6 +62,8 @@ class RegionInfoVC: UIViewController {
         annotation.coordinate = coordinate
         annotation.title = region.name
         mapView.addAnnotation(annotation)
+        overlay = MKCircle(center: coordinate, radius: region.radius)
+        mapView.addOverlay(overlay)
     }
     
     
@@ -113,5 +124,20 @@ class RegionInfoVC: UIViewController {
         }
         self.dismiss(animated: true)
     }
+}
+
+extension RegionInfoVC: MKMapViewDelegate {
     
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        var circleRenderer = MKCircleRenderer()
+        if let overlay = overlay as? MKCircle {
+            circleRenderer = MKCircleRenderer(circle: overlay)
+            circleRenderer.fillColor = .systemRed
+            //circleRenderer.strokeColor = .black
+            circleRenderer.alpha = 0.3
+
+        }
+        return circleRenderer
+    }
 }

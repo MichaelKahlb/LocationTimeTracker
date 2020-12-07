@@ -9,8 +9,8 @@ import UIKit
 import CoreLocation
 
 protocol RegionManagerDelegate: class {
-    func didEnter(at CLRegion: CLRegion)
-    func didExit(at CLRegion: CLRegion)
+    func didEnter(at region: Region)
+    func didExit(at region: Region)
 }
 
 class RegionManager: NSObject {
@@ -54,14 +54,29 @@ class RegionManager: NSObject {
 extension RegionManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        delegate?.didEnter(at: region)
-        print("Entered \(region.identifier)")
-
+        
+        PersistenceManager.getRegion(for: region.identifier) { result in
+            switch result {
+            case .success(let region):
+                print("region  \(region.name)  found")
+                self.delegate?.didEnter(at: region)
+            case .failure(let error):
+                print(error.rawValue)
+            }
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        delegate?.didExit(at: region)
-        print("Exit \(region.identifier)")
+        
+        PersistenceManager.getRegion(for: region.identifier) { result in
+            switch result {
+            case .success(let region):
+                print("region  \(region.name)  found")
+                self.delegate?.didExit(at: region)
+            case .failure(let error):
+                print(error.rawValue)
+            }
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
