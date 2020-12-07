@@ -16,4 +16,6 @@ struct Color: Codable, Hashable {
     var uiColor: UIColor {
         return UIColor(red: red, green: green, blue: blue, alpha: alpha ?? 1)
     }
+    
+    
 }

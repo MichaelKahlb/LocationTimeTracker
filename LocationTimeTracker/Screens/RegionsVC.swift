@@ -57,14 +57,15 @@ class RegionsVC: UIViewController {
     
     @objc func addTapped() {
         let destVC = RegionInfoVC()
-        let navController = UINavigationController(rootViewController: destVC)
-        present(navController, animated: true)
+        destVC.delegate = self
+        navigationController?.pushViewController(destVC, animated: true)
+        //let navController = UINavigationController(rootViewController: destVC)
+        //present(navController, animated: true)
     }
 
 }
 
-extension RegionsVC: UITableViewDataSource, UITableViewDelegate {
-    
+extension RegionsVC: UITableViewDataSource, UITableViewDelegate, RegionsDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return regions.count
@@ -100,5 +101,7 @@ extension RegionsVC: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    
+    func didUpdateRegions() {
+        loadRegions()
+    }
 }

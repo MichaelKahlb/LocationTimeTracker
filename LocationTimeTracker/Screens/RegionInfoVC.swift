@@ -8,11 +8,17 @@
 import UIKit
 import MapKit
 
+protocol RegionsDelegate: class {
+    func didUpdateRegions()
+}
+
 class RegionInfoVC: UIViewController {
 
     var region: Region?
     var mapView: MKMapView!
     var overlay: MKCircle = MKCircle()
+    var pickedColor:UIColor = .blue
+    weak var delegate: RegionsDelegate?
     var name: String = "" {
         didSet {
             title = name
@@ -44,7 +50,7 @@ class RegionInfoVC: UIViewController {
         
         
         NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: view.topAnchor),
+            mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
@@ -53,7 +59,14 @@ class RegionInfoVC: UIViewController {
     
     
     func loadRegion(){
-        guard let region = region else { return }
+        guard let region = region else {
+            let picker = UIColorPickerViewController()
+            picker.delegate = self
+            picker.supportsAlpha = false
+            present(picker, animated: true, completion: nil)
+            return
+            
+        }
         let span = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
         let coordinate = CLLocationCoordinate2D(latitude: region.lat, longitude: region.lon)
         let mapRegion = MKCoordinateRegion(center: coordinate, span: span)
@@ -94,7 +107,8 @@ class RegionInfoVC: UIViewController {
                     let textFieldName = alert?.textFields![0]
                     
                     if let regionName = textFieldName?.text {
-                        self.region = Region(name: regionName, colour: Color(red: 1, green: 1, blue: 0, alpha: 0.7), radius: 10000, lat: coordinate.latitude, lon: coordinate.longitude)
+                        let color = Color(red: self.pickedColor.rgba.red, green: self.pickedColor.rgba.green, blue: self.pickedColor.rgba.blue, alpha: self.pickedColor.rgba.alpha)
+                        self.region = Region(name: regionName, colour: color , radius: 10000, lat: coordinate.latitude, lon: coordinate.longitude)
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = coordinate
                         annotation.title = regionName
@@ -114,19 +128,19 @@ class RegionInfoVC: UIViewController {
     @objc func saveTapped(){
         if let region = region {
             PersistenceManager.update(with: region, actionType: .add) { [weak self] (error) in
-                guard self != nil else { return }
+                guard let self = self else { return }
                 guard let error = error else {
-                    print("Saved")
                     return
                 }
                 print(error.rawValue)
             }
         }
-        self.dismiss(animated: true)
+        delegate?.didUpdateRegions()
+        dismiss(animated: true)
     }
 }
 
-extension RegionInfoVC: MKMapViewDelegate {
+extension RegionInfoVC: MKMapViewDelegate, UIColorPickerViewControllerDelegate {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
@@ -140,4 +154,14 @@ extension RegionInfoVC: MKMapViewDelegate {
         }
         return circleRenderer
     }
+    
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        pickedColor = viewController.selectedColor
+        self.dismiss(animated: true, completion: nil)
+    }
 }
+
