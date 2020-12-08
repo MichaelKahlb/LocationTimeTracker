@@ -24,11 +24,14 @@ class RegionInfoVC: UIViewController {
             title = name
         }
     }
+    var sdf = UISlider()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
         configureMapView()
+        configureColorfield()
         loadRegion()
         configureLpgr()
     }
@@ -48,22 +51,34 @@ class RegionInfoVC: UIViewController {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(mapView!)
         
-        
         NSLayoutConstraint.activate([
             mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
+            mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100)
+        ])
+    }
+    
+    func configureColorfield() {
+        let colorField = LTTColorPickerView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 20, height: 40))
+        view.addSubview(colorField)
+        NSLayoutConstraint.activate([
+            colorField.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 10),
+            colorField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            colorField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            colorField.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
     
     func loadRegion(){
         guard let region = region else {
-            let picker = UIColorPickerViewController()
-            picker.delegate = self
-            picker.supportsAlpha = false
-            present(picker, animated: true, completion: nil)
+//            let picker = UIColorPickerViewController()
+//            picker.delegate = self
+//            picker.supportsAlpha = false
+//            present(picker, animated: true, completion: nil)
+
+            
             return
             
         }
