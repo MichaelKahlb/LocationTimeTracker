@@ -10,7 +10,7 @@ import UIKit
 class RegionCell: UITableViewCell {
 
     static let reuseIdentifier = "RegionCell"
-    var colorField = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+    var colorField = UIView(frame: .zero)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,17 +23,23 @@ class RegionCell: UITableViewCell {
     
     private func configure(){
         accessoryType = .disclosureIndicator
+        
+        colorField.translatesAutoresizingMaskIntoConstraints = false
         addSubview(colorField)
-        colorField.layer.cornerRadius = colorField.frame.size.width / 2
-        //Todoo
         NSLayoutConstraint.activate([
-
+            
+            colorField.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            colorField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            colorField.widthAnchor.constraint(equalToConstant: 20),
+            colorField.heightAnchor.constraint(equalToConstant: 20)
         ])
+        
     }
     
     func set(region: Region) {
         textLabel?.text = region.name + "    " + String(region.radius)
         colorField.backgroundColor = region.colour.uiColor
+        colorField.layer.cornerRadius = colorField.frame.size.width / 2
     }
 
 }

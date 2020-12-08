@@ -18,28 +18,31 @@ class RegionInfoVC: UIViewController {
     var mapView: MKMapView!
     var overlay: MKCircle = MKCircle()
     var pickedColor:UIColor = .blue
+    let selectColorButton = LTTButton(backGroundColor: .systemGreen)
     weak var delegate: RegionsDelegate?
     var name: String = "" {
         didSet {
             title = name
         }
     }
-    var sdf = UISlider()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
         configureMapView()
-        configureColorfield()
+        configureColorchangeButton()
         loadRegion()
         configureLpgr()
     }
-
+    
+    deinit {
+        self.mapView.delegate = nil
+        mapView.removeAnnotations(mapView.annotations)
+    }
     
     func configureViewController() {
         view.backgroundColor = .systemBackground
-        title = region?.name ?? "New Region"
+        title = region?.name ?? "Add a new Region"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTapped))
     }
     
@@ -59,29 +62,36 @@ class RegionInfoVC: UIViewController {
         ])
     }
     
-    func configureColorfield() {
-        let colorField = LTTColorPickerView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 20, height: 40))
-        view.addSubview(colorField)
+    func configureColorchangeButton() {
+        view.addSubview(selectColorButton)
+        selectColorButton.addTarget(self, action: #selector(presentColorPicker), for: .touchUpInside)
         NSLayoutConstraint.activate([
-            colorField.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 10),
-            colorField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            colorField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            colorField.heightAnchor.constraint(equalToConstant: 40)
+            selectColorButton.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 10),
+            selectColorButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            selectColorButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            selectColorButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
+    @objc func presentColorPicker() {
+        let destVC = ColorSelectionVC()
+        navigationController?.pushViewController(destVC, animated: true)
+    }
+    
+//    func configureColorfield() {
+//        let colorField = LTTColorPickerView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 20, height: 40))
+//        view.addSubview(colorField)
+//        NSLayoutConstraint.activate([
+//            colorField.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 10),
+//            colorField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+//            colorField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+//            colorField.heightAnchor.constraint(equalToConstant: 40)
+//        ])
+//    }
+    
     
     func loadRegion(){
-        guard let region = region else {
-//            let picker = UIColorPickerViewController()
-//            picker.delegate = self
-//            picker.supportsAlpha = false
-//            present(picker, animated: true, completion: nil)
-
-            
-            return
-            
-        }
+        guard let region = region else { return }
         let span = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
         let coordinate = CLLocationCoordinate2D(latitude: region.lat, longitude: region.lon)
         let mapRegion = MKCoordinateRegion(center: coordinate, span: span)
@@ -92,6 +102,7 @@ class RegionInfoVC: UIViewController {
         mapView.addAnnotation(annotation)
         overlay = MKCircle(center: coordinate, radius: region.radius)
         mapView.addOverlay(overlay)
+        selectColorButton.backgroundColor = region.colour.uiColor
     }
     
     
@@ -163,7 +174,7 @@ extension RegionInfoVC: MKMapViewDelegate, UIColorPickerViewControllerDelegate {
         if let overlay = overlay as? MKCircle {
             circleRenderer = MKCircleRenderer(circle: overlay)
             circleRenderer.fillColor = .systemRed
-            //circleRenderer.strokeColor = .black
+            circleRenderer.strokeColor = .black
             circleRenderer.alpha = 0.3
 
         }
@@ -171,12 +182,14 @@ extension RegionInfoVC: MKMapViewDelegate, UIColorPickerViewControllerDelegate {
     }
     
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
-        self.dismiss(animated: true, completion: nil)
+        pickedColor = viewController.selectedColor
+        dismiss(animated: true, completion: nil)
     }
     
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         pickedColor = viewController.selectedColor
-        self.dismiss(animated: true, completion: nil)
+        selectColorButton.backgroundColor = viewController.selectedColor
+        dismiss(animated: true, completion: nil)
     }
 }
 

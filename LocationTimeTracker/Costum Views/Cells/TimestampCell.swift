@@ -23,13 +23,21 @@ class TimestampCell: UITableViewCell {
     
     private func configure(){
         accessoryType = .disclosureIndicator
-        colorField.layer.cornerRadius = colorField.frame.size.width / 2
+        colorField.translatesAutoresizingMaskIntoConstraints = false
         addSubview(colorField)
+        NSLayoutConstraint.activate([
+            
+            colorField.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            colorField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            colorField.widthAnchor.constraint(equalToConstant: 20),
+            colorField.heightAnchor.constraint(equalToConstant: 20)
+        ])
     }
     
     func set(timeStamp: Timestamp) {
         textLabel?.text = timeStamp.timeValue + " " + timeStamp.region.name + " "
         colorField.backgroundColor = timeStamp.region.colour.uiColor
+        colorField.layer.cornerRadius = colorField.frame.size.width / 2
         switch timeStamp.action {
         case .enter:
             backgroundColor = .systemGreen

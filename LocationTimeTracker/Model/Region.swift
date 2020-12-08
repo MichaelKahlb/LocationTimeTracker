@@ -9,7 +9,7 @@ import UIKit
 
 struct Region: Codable, Hashable {
     let name: String
-    let colour: Color
+    var colour: Color
     let radius: Double
     let lat: Double
     let lon: Double

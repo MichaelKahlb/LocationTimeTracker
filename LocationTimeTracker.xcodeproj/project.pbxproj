@@ -24,6 +24,12 @@
 		4CA8AD79256C43B1002509E3 /* TimestampCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8AD78256C43B1002509E3 /* TimestampCell.swift */; };
 		4CA8ADA525743EE9002509E3 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8ADA425743EE9002509E3 /* UITableView+Ext.swift */; };
 		4CE60253257F787C00837056 /* LTTColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE60252257F787C00837056 /* LTTColorPickerView.swift */; };
+		4CE60259257FED9C00837056 /* LTTButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE60258257FED9C00837056 /* LTTButton.swift */; };
+		4CE6025F257FEDAF00837056 /* LTTTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE6025E257FEDAF00837056 /* LTTTextfield.swift */; };
+		4CE60267257FEDB800837056 /* LTTSecondaryTitelLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE60264257FEDB800837056 /* LTTSecondaryTitelLabel.swift */; };
+		4CE60268257FEDB800837056 /* LTTTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE60265257FEDB800837056 /* LTTTitleLabel.swift */; };
+		4CE60269257FEDB800837056 /* LTTBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE60266257FEDB800837056 /* LTTBodyLabel.swift */; };
+		4CE6027D2580257100837056 /* ColorSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE6027C2580257100837056 /* ColorSelectionVC.swift */; };
 		4CF2837B255707AF00A3BE19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF2837A255707AF00A3BE19 /* AppDelegate.swift */; };
 		4CF2837D255707AF00A3BE19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF2837C255707AF00A3BE19 /* SceneDelegate.swift */; };
 		4CF28384255707B200A3BE19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF28383255707B200A3BE19 /* Assets.xcassets */; };
@@ -67,6 +73,12 @@
 		4CA8AD78256C43B1002509E3 /* TimestampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampCell.swift; sourceTree = "<group>"; };
 		4CA8ADA425743EE9002509E3 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		4CE60252257F787C00837056 /* LTTColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTTColorPickerView.swift; sourceTree = "<group>"; };
+		4CE60258257FED9C00837056 /* LTTButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTTButton.swift; sourceTree = "<group>"; };
+		4CE6025E257FEDAF00837056 /* LTTTextfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTTTextfield.swift; sourceTree = "<group>"; };
+		4CE60264257FEDB800837056 /* LTTSecondaryTitelLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTTSecondaryTitelLabel.swift; sourceTree = "<group>"; };
+		4CE60265257FEDB800837056 /* LTTTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTTTitleLabel.swift; sourceTree = "<group>"; };
+		4CE60266257FEDB800837056 /* LTTBodyLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTTBodyLabel.swift; sourceTree = "<group>"; };
+		4CE6027C2580257100837056 /* ColorSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionVC.swift; sourceTree = "<group>"; };
 		4CF28377255707AF00A3BE19 /* LocationTimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationTimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF2837A255707AF00A3BE19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CF2837C255707AF00A3BE19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +133,9 @@
 		4C4035F72559BD7600DBE020 /* Costum Views */ = {
 			isa = PBXGroup;
 			children = (
+				4CE60263257FEDB800837056 /* Labels */,
+				4CE6025D257FEDAF00837056 /* TextFields */,
+				4CE60257257FED9C00837056 /* Buttons */,
 				4CE60251257F784800837056 /* Views */,
 				4CA8AD6F256C4378002509E3 /* Cells */,
 				4C4036012559C05200DBE020 /* ViewControllers */,
@@ -150,6 +165,7 @@
 				4C403603255DC23500DBE020 /* RegionsVC.swift */,
 				4C40360B255DC26400DBE020 /* TimesVC.swift */,
 				4CA615502576B6CA004403E2 /* RegionInfoVC.swift */,
+				4CE6027C2580257100837056 /* ColorSelectionVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -207,6 +223,32 @@
 				4CE60252257F787C00837056 /* LTTColorPickerView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4CE60257257FED9C00837056 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				4CE60258257FED9C00837056 /* LTTButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		4CE6025D257FEDAF00837056 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				4CE6025E257FEDAF00837056 /* LTTTextfield.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		4CE60263257FEDB800837056 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				4CE60264257FEDB800837056 /* LTTSecondaryTitelLabel.swift */,
+				4CE60265257FEDB800837056 /* LTTTitleLabel.swift */,
+				4CE60266257FEDB800837056 /* LTTBodyLabel.swift */,
+			);
+			path = Labels;
 			sourceTree = "<group>";
 		};
 		4CF2836E255707AF00A3BE19 = {
@@ -393,12 +435,18 @@
 				4C647ACA2565A2300097F12E /* Timestamp.swift in Sources */,
 				4C647ADD256AB2260097F12E /* PersistenceManager.swift in Sources */,
 				4C4035FA2559BDBE00DBE020 /* LTTTabBarController.swift in Sources */,
+				4CE60268257FEDB800837056 /* LTTTitleLabel.swift in Sources */,
 				4CA6154425758393004403E2 /* UIDate+Ext.swift in Sources */,
 				4CA8AD71256C439A002509E3 /* RegionCell.swift in Sources */,
+				4CE60267257FEDB800837056 /* LTTSecondaryTitelLabel.swift in Sources */,
+				4CE60269257FEDB800837056 /* LTTBodyLabel.swift in Sources */,
 				4CA615512576B6CA004403E2 /* RegionInfoVC.swift in Sources */,
+				4CE60259257FED9C00837056 /* LTTButton.swift in Sources */,
 				4CA6153B25757AD6004403E2 /* RegionManager.swift in Sources */,
 				4C40360C255DC26400DBE020 /* TimesVC.swift in Sources */,
+				4CE6025F257FEDAF00837056 /* LTTTextfield.swift in Sources */,
 				4CE60253257F787C00837056 /* LTTColorPickerView.swift in Sources */,
+				4CE6027D2580257100837056 /* ColorSelectionVC.swift in Sources */,
 				4C647AD7256AAFF50097F12E /* Colour.swift in Sources */,
 				4CA8AD79256C43B1002509E3 /* TimestampCell.swift in Sources */,
 				4C647AD22565A2400097F12E /* Region.swift in Sources */,

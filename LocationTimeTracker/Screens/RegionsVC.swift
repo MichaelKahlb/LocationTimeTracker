@@ -58,9 +58,8 @@ class RegionsVC: UIViewController {
     @objc func addTapped() {
         let destVC = RegionInfoVC()
         destVC.delegate = self
-        navigationController?.pushViewController(destVC, animated: true)
-        //let navController = UINavigationController(rootViewController: destVC)
-        //present(navController, animated: true)
+        let navController = UINavigationController(rootViewController: destVC)
+        present(navController, animated: true)
     }
 
 }
